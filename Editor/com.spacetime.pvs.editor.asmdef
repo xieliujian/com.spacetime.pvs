@@ -1,0 +1,20 @@
+{
+    "name": "com.spacetime.pvs.editor",
+    "rootNamespace": "",
+    "references": [
+        "com.spacetime.core.runtime",
+        "com.spacetime.core.editor",
+        "com.spacetime.pvs.runtime"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

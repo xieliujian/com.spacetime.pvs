@@ -1,0 +1,16 @@
+{
+    "name": "com.spacetime.pvs.runtime",
+    "rootNamespace": "",
+    "references": [
+        "com.spacetime.core.runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

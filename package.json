@@ -2,9 +2,16 @@
   "name": "com.spacetime.pvs",
   "version": "1.0.0",
   "displayName": "SpaceTime PVS",
-  "description": "SpaceTime PVS",
+  "description": "SpaceTime PVS（Potentially Visible Set）烘焙与运行时可见性剔除系统。",
   "keywords": [
-    "pvs"
+    "pvs",
+    "culling",
+    "occlusion",
+    "baking",
+    "visibility"
   ],
-  "unity": "2022.3"
+  "unity": "2022.3",
+  "dependencies": {
+    "com.spacetime.core": "1.0.0"
+  }
 }
