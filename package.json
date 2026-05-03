@@ -1,0 +1,10 @@
+{
+  "name": "com.spacetime.pvs",
+  "version": "1.0.0",
+  "displayName": "SpaceTime PVS",
+  "description": "SpaceTime PVS",
+  "keywords": [
+    "pvs"
+  ],
+  "unity": "2022.3"
+}
