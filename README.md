@@ -3,6 +3,12 @@
 PVS（Potentially Visible Set）烘焙与运行时可见性剔除系统核心包。  
 提供渲染器分组、采样烘焙、二进制流式加载及运行时剔除等基础能力。
 
+## 参考
+
+本包核心烘焙算法参考自以下 Unity 插件：
+
+- [Perfect Culling - Occlusion Culling System](https://assetstore.unity.com/packages/tools/utilities/perfect-culling-occlusion-culling-system-193611) by KKKoenigz — Unity Asset Store
+
 ## 目录
 
 - [功能概述](#功能概述)
