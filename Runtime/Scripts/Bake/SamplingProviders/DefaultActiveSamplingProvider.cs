@@ -21,6 +21,9 @@ namespace ST.PVS
         /// <summary>提供者名称。</summary>
         public static string DefaultName => nameof(DefaultActiveSamplingProvider);
 
+        /// <summary>提供者名称（兼容旧代码的别名）。</summary>
+        public static string DefaultActiveSamplingProviderName => DefaultName;
+
         /// <inheritdoc/>
         public string Name => DefaultName;
 
