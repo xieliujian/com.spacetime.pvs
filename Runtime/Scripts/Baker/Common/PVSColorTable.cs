@@ -22,7 +22,21 @@ namespace ST.PVS
             get
             {
                 if (m_Instance == null)
-                    m_Instance = Resources.LoadAll<PVSColorTable>(string.Empty)[0];
+                {
+                    var all = Resources.LoadAll<PVSColorTable>(string.Empty);
+                    if (all != null && all.Length > 0)
+                    {
+                        m_Instance = all[0];
+                    }
+                    else
+                    {
+                        Debug.LogWarning("[PVS] No PVSColorTable asset found in Resources. " +
+                            "Create one via Assets > Create > SpaceTime > PVS > PVSColorTable " +
+                            "and place it in a Resources folder, then right-click > Generate.");
+                        m_Instance = ScriptableObject.CreateInstance<PVSColorTable>();
+                        m_Instance.Generate();
+                    }
+                }
 
                 return m_Instance;
             }
