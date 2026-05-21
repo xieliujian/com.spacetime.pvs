@@ -15,8 +15,8 @@ namespace ST.PVS
         /// <summary>PVS 资源在工程中的根目录。</summary>
         public const string BaseFolder = @"Assets/SpaceTime";
 
-        /// <summary>用于烘焙可见性计算的 Compute Shader 路径。</summary>
-        public static readonly string ComputeShaderPath = System.IO.Path.Combine(BaseFolder, @"Shader/Scene/PVS/ExtractUniquePoints.compute");
+        /// <summary>用于烘焙可见性计算的 Compute Shader 路径（位于包内 Shader 目录）。</summary>
+        public static readonly string ComputeShaderPath = @"Packages/com.spacetime.pvs/Shader/ExtractUniquePoints.compute";
 
         /// <summary>烘焙用双面剔除材质路径。</summary>
         public static readonly string s_MatCullOffPath = System.IO.Path.Combine(BaseFolder, @"Resources/PVS/Materials/PVS_UnlitTag_CullOff.mat");
