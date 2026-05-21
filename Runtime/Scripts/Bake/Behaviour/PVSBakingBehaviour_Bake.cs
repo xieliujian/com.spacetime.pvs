@@ -238,14 +238,23 @@ namespace ST.PVS
             var worldInfoList = FindWorldPosInfoList();
             bool isMaxDensityAreaExist = IsMaxDensityAreaExist(false);
 
+            Logger.Log($"[PVS][CalcSamplingLocations] 总采样点数: {worldInfoList.Count}, isSinglePointBakeMode: {isSinglePointBakeMode}, isMaxDensityAreaExist: {isMaxDensityAreaExist}, SamplingProviders数量: {SamplingProviders.Count}");
+
             var samplingLocations = new List<PVSBakeSettings.SamplingLocation>(worldInfoList.Count);
             int count = 0;
+            int nullCount = 0;
+            int forceCount = 0;
+            int providerRejectedCount = 0;
+            int singlePointInvalidCount = 0;
 
             for (int i = 0; i < worldInfoList.Count; ++i)
             {
                 var info = worldInfoList[i];
                 if (info == null)
+                {
+                    nullCount++;
                     continue;
+                }
 
                 var pos = info.pos;
                 bool isForceSamplePos = info.isForceSamplePos;
@@ -254,16 +263,48 @@ namespace ST.PVS
                 if (isSinglePointBakeMode)
                 {
                     if (IsSamplePosValid(pos, isMaxDensityAreaExist))
-                        active = isForceSamplePos ? true : SamplingProvidersIsPositionActive(pos);
+                    {
+                        if (isForceSamplePos)
+                        {
+                            active = true;
+                            forceCount++;
+                        }
+                        else if (SamplingProvidersIsPositionActive(pos))
+                        {
+                            active = true;
+                        }
+                        else
+                        {
+                            providerRejectedCount++;
+                        }
+                    }
+                    else
+                    {
+                        singlePointInvalidCount++;
+                    }
                 }
                 else
                 {
-                    active = isForceSamplePos ? true : SamplingProvidersIsPositionActive(pos);
+                    if (isForceSamplePos)
+                    {
+                        active = true;
+                        forceCount++;
+                    }
+                    else if (SamplingProvidersIsPositionActive(pos))
+                    {
+                        active = true;
+                    }
+                    else
+                    {
+                        providerRejectedCount++;
+                    }
                 }
 
                 samplingLocations.Add(new PVSBakeSettings.SamplingLocation(pos, active));
                 count += active ? 1 : 0;
             }
+
+            Logger.Log($"[PVS][CalcSamplingLocations] 有效点: {count}, 强制点: {forceCount}, null点: {nullCount}, Provider拒绝: {providerRejectedCount}, SinglePoint无效: {singlePointInvalidCount}");
 
             activeSamplingPositionsCount = count;
             return samplingLocations;
