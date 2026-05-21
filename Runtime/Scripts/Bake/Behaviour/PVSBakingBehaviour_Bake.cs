@@ -135,6 +135,11 @@ namespace ST.PVS
                                 yield return new PVSBakeAbortedYieldInstruction();
                             }
 
+#if UNITY_EDITOR
+                            UnityEditor.SceneView.RepaintAll();
+#endif
+                            yield return null;
+
                             lastSpeed = (Time.realtimeSinceStartup - lastTime)
                                         / (currentBatchCount - lastElement) / (float)baker.BatchCount;
                             averageSpeed = SMOOTHING_FACTOR * lastSpeed + (1 - SMOOTHING_FACTOR) * averageSpeed;
