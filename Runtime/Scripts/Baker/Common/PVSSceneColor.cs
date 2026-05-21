@@ -72,6 +72,8 @@ namespace ST.PVS
             m_AdditionalOccluders = additionalOccluders;
             m_IsCheckSamplePosOffsetMask = isCheckSamplePosOffsetMask;
 
+            Logger.Log($"[PVSSceneColor] 烘焙分组数: {(groups != null ? groups.Length : 0)}");
+
             m_Hash = new int[256 * 256 * 256];
             m_RendererColors = new Color32[m_AllGroups.Length];
 
@@ -209,6 +211,8 @@ namespace ST.PVS
                     PrepareRenderer(renderer, m_RendererColors[groupIndex], propBlock);
                 });
             }
+
+            Logger.Log($"[PVSSceneColor] 已对 {allRenderers.Count} 个渲染器设置烘焙颜色，移至 Layer {PVSConstants.CamBakeLayer}。");
 
             if (m_AdditionalOccluders == null)
                 return;

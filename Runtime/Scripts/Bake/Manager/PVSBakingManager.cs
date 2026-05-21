@@ -201,6 +201,9 @@ namespace ST.PVS
                     }
                     else
                     {
+#if UNITY_EDITOR
+                        UnityEditor.SceneView.RepaintAll();
+#endif
                         return;
                     }
                 }
