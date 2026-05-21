@@ -17,8 +17,8 @@ namespace ST.PVS
         /// <summary>PVS 烘焙完成时触发的回调。</summary>
         static public PVSVoidFunc onPVSBakeFinish;
 
-        /// <summary>计算材质 Alpha 值的回调，由外部实现并注册。</summary>
-        static public PVSCalcAlphaFunc onPVSCalcAlpha;
+        /// <summary>计算材质 Alpha 值的回调，由外部实现并注册。未注册时返回不透明（1f）。</summary>
+        static public PVSCalcAlphaFunc onPVSCalcAlpha = (_mat) => 1f;
 
         /// <summary>处理距离 LOD 的回调。</summary>
         static public PVSBoolFunc onPVSProcDistanceLOD;

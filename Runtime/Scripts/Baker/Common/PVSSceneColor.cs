@@ -251,7 +251,9 @@ namespace ST.PVS
 
             for (int materialIndex = 0; materialIndex < allMaterials.Length; ++materialIndex)
             {
-                col.a = PVSBridge.onPVSCalcAlpha(allMaterials[materialIndex]);
+                col.a = PVSBridge.onPVSCalcAlpha != null
+                    ? PVSBridge.onPVSCalcAlpha(allMaterials[materialIndex])
+                    : 1f;
                 allMaterials[materialIndex] = realMat;
 
                 propBlock.SetColor(m_PropIdColor, col);
