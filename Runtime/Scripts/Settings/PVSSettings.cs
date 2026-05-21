@@ -21,7 +21,22 @@ namespace ST.PVS
             get
             {
                 if (m_Instance == null)
-                    m_Instance = Resources.LoadAll<PVSSettings>(string.Empty)[0];
+                {
+                    var all = Resources.LoadAll<PVSSettings>(string.Empty);
+                    if (all != null && all.Length > 0)
+                    {
+                        m_Instance = all[0];
+                    }
+                    else
+                    {
+                        // No PVSSettings asset found in any Resources folder.
+                        // Create a transient default so the system can still run.
+                        Debug.LogWarning("[PVS] No PVSSettings asset found in Resources. " +
+                            "Create one via Assets > Create > SpaceTime > PVS > PVSSettings " +
+                            "and place it in a Resources folder.");
+                        m_Instance = ScriptableObject.CreateInstance<PVSSettings>();
+                    }
+                }
 
                 return m_Instance;
             }
