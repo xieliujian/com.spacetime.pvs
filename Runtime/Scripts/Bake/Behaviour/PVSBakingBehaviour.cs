@@ -163,13 +163,13 @@ namespace ST.PVS
         /// <summary>是否处于流式数据模式。</summary>
         public bool IsStreamMode() => m_bStreamMode;
 
-        /// <summary>Baker 是否使用 FOV 90 模式。</summary>
+        /// <summary>Baker 是否使用 FOV 90 模式。未开启 FOV 选择时默认使用 FOV 90。</summary>
         public bool IsBakerFov90()
         {
             if (openBakerFovSel)
                 return bakerFov90;
 
-            return false;
+            return true;
         }
 
         /// <summary>是否忽略射线检查默认偏移类型。</summary>
