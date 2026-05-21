@@ -18,11 +18,11 @@ namespace ST.PVS
         /// <summary>用于烘焙可见性计算的 Compute Shader 路径（位于包内 Shader 目录）。</summary>
         public static readonly string ComputeShaderPath = @"Packages/com.spacetime.pvs/Shader/ExtractUniquePoints.compute";
 
-        /// <summary>烘焙用双面剔除材质路径。</summary>
-        public static readonly string s_MatCullOffPath = System.IO.Path.Combine(BaseFolder, @"Resources/PVS/Materials/PVS_UnlitTag_CullOff.mat");
+        /// <summary>烘焙用双面剔除材质路径（位于包内 Shader/Materials 目录）。</summary>
+        public static readonly string s_MatCullOffPath = @"Packages/com.spacetime.pvs/Shader/Materials/PerfectCulling_UnlitTag_CullOff.mat";
 
-        /// <summary>烘焙用背面剔除材质路径。</summary>
-        public static readonly string s_MatCullBackPath = System.IO.Path.Combine(BaseFolder, @"Resources/PVS/Materials/PVS_UnlitTag_CullBack.mat");
+        /// <summary>烘焙用背面剔除材质路径（位于包内 Shader/Materials 目录）。</summary>
+        public static readonly string s_MatCullBackPath = @"Packages/com.spacetime.pvs/Shader/Materials/PerfectCulling_UnlitTag_CullBack.mat";
 
         /// <summary>多场景烘焙临时场景路径。</summary>
         public static readonly string MultiSceneTempPath = System.IO.Path.Combine(BaseFolder, @"PVS_Temp.unity");
